@@ -30,10 +30,10 @@ export default function Typewriter({
     }, [text]);
 
     return(
-        <div className={`relative overflow-hidden border border-slate-700 bg-slate-900 p-4 font-mono text-sm leading-relaxed ${className}`} style={{width, height}}>
+        <div className={`relative overflow-hidden border border-slate-700 bg-slate-900 p-4 font-mono leading-relaxed h-fit ${className}`}>
             <div className="h-full overflow-y-auto break-words whitespace-pre-wrap text-emerald-300">
                 {displayedText}
-                <spa className="inline-block w-2 h-4 ml-1 translate-y-1 bg-emerald-300 animate-pulse" />
+                <span className={`display-${text !== '' ? 'flex' : 'hidden'}inline-block w-2 h-4 ml-1 translate-y-1 bg-emerald-300 animate-pulse`} />
             </div>
         </div>
     )
