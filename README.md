@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [S.C.R.A.M.](https://scram-ten.vercel.app)
 
-## Getting Started
+## Story
 
-First, run the development server:
+S.C.R.A.M. is a browser-based game where the user plays as a nuclear engineer, he has been called to the Flavortown Power Plant to fix a long issue of "underloading". The power plant has failed to meet the grid requirements for a long time now. The user has to fix this issue by ensuring that the grid's power ratings are met.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+In the process, the player has to overcome multiple reactor failures and problems which they may come accross if they do not handle the reactor carefully, if the player suspects a reactor meltdown then they **HAVE TO** to press the "SCRAM" button which shuts the reactor, saving Flavortown from eternal doom.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+However, if the player presses the button at the wrong time, the reactor will become **SUPER CRITICAL** leading to reactor meltdown and the creation of **CORIUM**(a special element created when molten nuclear material fuses with concrete and steel) the player still has a chance to save Flavortown by clearing CORIUM in time, or else, Flavortown will forever be written in history books.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Architecture of the Site
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Frontend - NextJS, Tailwind, CSS, HTML
+- Backend - Next API
+- Storage - localStorage
