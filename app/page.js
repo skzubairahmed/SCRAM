@@ -25,7 +25,7 @@ export default function Home() {
       setTerminalWowText("SYSTEM REBOOTING........SUCCESS\nACCESSING CORE........SUCCESS");
       setTimeout(() => {
         router.push('/reactor');
-      }, 2080);
+      }, 2100);
     } else if(input !== ""){
       localStorage.setItem('name', input);
       setTerminalInput("");
