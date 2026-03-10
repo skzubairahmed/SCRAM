@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <main className="p-10 bg-slate-950 min-h-screen flex flex-col gap-3 items-center font-mono">
       <Typewriter
-        className="text-emerald-500 text-[80px] w-[540px] text-center [text-shadow:0_0_10px_rgba(16,185,129,0.8)]"
+        className="text-emerald-500 text-[80px] w-[540px] p-3 [text-shadow:0_0_10px_rgba(16,185,129,0.8)]"
         text={gameNameText}
         speed={120}
       />
