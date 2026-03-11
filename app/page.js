@@ -1,86 +1,55 @@
-'use client';
-import { useRouter } from "next/navigation";
-import Typewriter from "./components/TypewriterBox";
-import { useState, useEffect } from 'react';
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
-export default function Home() {
-  const router = useRouter();
-  const gameNameText = "S.C.R.A.M.";
-  
-  const [terminalWelcomeText, setTerminalWelcomeText] = useState("");
-  const [terminalInput, setTerminalInput] = useState("");
-  const [terminalWowText, setTerminalWowText] = useState("");
+export default function Home(){
+  const [isWelcomed, setIsWelcomed] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setTerminalWelcomeText("Welcome. Whats youre name?");
-    }, 1800)
-  }, []);
- 
-  const handleTerminalInput = (e) => {
-    e.preventDefault();
-    const input = terminalInput.trim();
-
-    if(input.toLowerCase() === "start"){
-      setTerminalWowText("SYSTEM REBOOTING........SUCCESS\nACCESSING CORE........SUCCESS");
-      setTimeout(() => {
-        router.push('/reactor');
-      }, 2100);
-    } else if(input !== ""){
-      localStorage.setItem('name', input);
-      setTerminalInput("");
-      setTerminalWowText(`Are you really ${input}? We have been waiting for you since a long time.\nEnter 'start' to continue`);
-    }
-  }
-
-  return (
-    <main className="p-10 bg-slate-950 min-h-screen flex flex-col gap-3 items-center font-mono">
-      <Typewriter
-        className="text-emerald-500 text-[80px] w-[540px] p-3 [text-shadow:0_0_10px_rgba(16,185,129,0.8)]"
-        text={gameNameText}
-        speed={120}
-      />
-      <div className="relative p-6 bg-black rounded-lg border border-emerald-900/50 w-[540px] h-[400px] flex flex-col overflow-hidden shadow-2xl">
-        <div 
-          className="absolute inset-0 pointer-events-none z-50 opacity-20"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-              linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))
-            `,
-            backgroundSize: '100% 3px, 3px 100%'
-          }}
-        />
-        <div className="absolute inset-0 pointer-events-none z-40 shadow-[inset_0_0_100px_rgba(0,0,0,0.7)]" />
-        <div className="relative z-10 flex flex-col flex-1 gap-4">
-          <div className="flex flex-col text-emerald-500 [text-shadow:0_0_5px_rgba(16,185,129,0.5)]">
-            <Typewriter 
-              className="bg-transparent border-0 p-0 mb-1" 
-              text={terminalWelcomeText} 
-              speed={40} 
-            />
-            <Typewriter 
-              className="bg-transparent border-0 p-0 text-emerald-400/80" 
-              text={terminalWowText} 
-              speed={40} 
-            />
+  if(!isWelcomed){
+    return(
+      <div>
+        <Link href="https://flavortown.hackclub.com">
+          <img src="/flag-orpheus-top.svg" className="top-0 l-0 m-0" />
+        </Link>
+        <main className="h-full w-full flex flex-col gap-2 items-center justify-center">
+          <div className="bg-slate-900 flex flex-col gap-3 items-center rounded-md p-3 w-fit h-fit">
+            <Link className="radiation-glow-text" href="https://flavortown.hackclub.com/projects/16576">
+              Click here to follow the project.
+            </Link>
+            <Link className="radiation-glow-text" href="/credits">
+              These people helped me! Click here to check them out.
+            </Link>
+            <button onClick={() => {setIsWelcomed(true)}} className="p-3 w-fit h-fit border border-slate-500 rounded-md cursor-pointer">
+              Click here to start
+            </button>
           </div>
+        </main>
+      </div>
+    );
+  };
 
-          <form onSubmit={handleTerminalInput} className="sticky-bottom mt-auto">
-            <div className="flex items-center gap-2 border-b border-emerald-900/50 py-1">
-              <span className="text-emerald-800">{">"}</span>
-              <input 
-                type="text" 
-                value={terminalInput} 
-                onChange={(e) => setTerminalInput(e.target.value)} 
-                className="bg-transparent w-full text-emerald-400 outline-none placeholder:text-emerald-900" 
-                placeholder="COMMAND..." 
-                autoFocus
-              />
-            </div>
-            <button type="submit" className="hidden" />
-          </form>
+  return(
+    <main className="bg-slate-950 grid grid-cols-3 gap-3 h-screen w-full p-3">
+      {/*context section*/}
+      <div className="col-span-1 h-full w-full border border-slate-500 rounded-lg">
+
+      </div>
+
+
+      {/*menu section*/}
+      <div className="col-span-2 flex flex-cols p-2 h-full w-full border border-slate-500 rounded-lg">
+        <div className="h-fit w-full rounded-lg border border-slate-500 flex flex-row gap-3 p-2">
+          <div className="h-28 w-28 flex flex-row items-center justify-between gap-5">
+            <Image alt="icon" className="rounded-sm" src="/favicon.ico" height={120} width={100} />
+            <span 
+            className="radiation-glow-text text text-[100px]">
+              S.C.R.A.M.
+            </span>
+          </div>
         </div>
+
+
       </div>
     </main>
   );
